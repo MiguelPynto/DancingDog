@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<!--
+42094 Beatriz Lalanda
+42066 Pedro Pinto
+codigo inicial de AMD/2014
+
+HTML5 / CSS3
+needs internet connection for imaages
+
+"O Cão Dançarino defende-se dos Caranguejos Mutantes Assassinos"
+
+Projecto 3 - JavaScript - Linguagens e Ambientes de Programação
+				Junho de 2014
+
+Quisemos fazer o nosso código o mais extensível possível. Para esse efeito,
+em adição a todas as funcionalidades pedidas no enunciado,incluímos também
+um tipo diferente de objectos inanimados (pedra), um tipo diferente
+de herói (ovelha), e outro tipo de NPC (gato). Deixamos ao critério do
+jogador a escolha do tipo de jogo (single player ou multiplayer), o número de
+inimigos de cada tipo, a velocidade de cada tipo de inimigos,
+o número de tigelas e o número de pedras, o número de vidas...
+
+Para facilitar, incluímos uma opção debug, que inibe os alertas e reports do
+html, mas mostra o custo de chegar a cada casa a partir do heroi
+(cão quando o jogo é single player, ovelha quando é multiplayer)
+
+Os nossos vilões, quer os caranguejos quer os gatos, são inteligentes,e escolhem
+sempre o melhor caminho que encontram, para o herói que estiver mais perto.
+- os caranguejos para tentar apanhar os herois, os gatos para fugir destes. 
+
+A ovelha é controlada com E-S-D-F para ir para cima-esquerda-baixo-direita
+respectivamente; o cão é controlado com as teclas indicadas no enunciado.
+(para jogar multiplayer aconselhamos usar as setas de direcção para controlá-lo)
+
+O cão e a ovelha empurram tigelas, mas apenas o cão consegue empurrar pedras.
+Nem os heróis nem os vilões conseguem empurrar blocos.
+
+Os heróis podem perseguir os gatos, e ganham vidas por cada gato que comem
+
+O jogo pode ser posto em pausa, e retomar o estado anterior quando se desejar.
+
+Está esteticamente optimizado para o google Chrome, mas todas as funcionalidades
+estão perfeitamente operacionais no Mozilla Firefox.
+
+
+-->
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>DancingDog</title>
+	<link rel="shortcut icon" type="image" href="img/logo.gif"/>
+	<link href="http://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet" type="text/css"/>
+	<link href="reset.css" rel="stylesheet" type="text/css"/>
+	<link href="layout.css" rel="stylesheet" type="text/css"/>
+	<link href="style.css" rel="stylesheet" type="text/css"/>
+	<script type="text/javascript" src="game.js"></script>
+</head>
+<body onload="onLoad();">
+	<div id="container">
+		<div id="play">
+			<canvas id="playground" width="992" height="576">
+				Please use a decent browser!
+			</canvas>
+			<div id="playreport"><span></span></div>
+			<div id="playwelcome">
+				<p class="center">Olá!!</p>
+				<p>The objective of the game is to block all crabs by pushing bowls. Crabs can crawl in diagonal and are always hunting for you if there's a path. If they pinch you, you lose a life.</p>
+				<p>There is also a cooperative mode, where you and a friend fight strategically against the annoying crabs.</p>
+				<p>Extra, scared cats give you lives if you catch them, and only the dog has power to push rocks.</p>
+				<p class="center">Have phun :)</p>
+
+				<div id="controls">
+					<div>
+						<img src="img/arrows.png"/>
+						<figcaption>Player 1</figcaption>
+					</div>
+					<div>
+						<img src="img/wasd.png"/>
+						<figcaption>Player 2</figcaption>
+					</div>
+					<div>
+						<img class="half" src="img/12.png"/>
+						<figcaption>Start/Restart</figcaption>
+					</div>
+					<div>
+						<img class="half" src="img/spacebar.png"/>
+						<figcaption>Pause/Unpause</figcaption>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="menu">
+			<form id="menucontrol">
+				<input type="button" name="single" onClick="onClickStartSingle()">
+				<input type="button" name="coop" onClick="onClickStartCoop()">
+				<input type="button" name="pause" onClick="onClickPause()">
+			</form>
+			<div id="menuinfo">
+				<h1>DancingDog</h1>
+				<h2 class="left">Lives</h2>
+				<h2 class="right">Time</h2>
+				<h3 class="left" id="lives">-</h3>
+				<h3 class="right" id ="time">-</h3>
+				<h2>HiScore</h2>
+				<h3 id="hiscore">-</h3>
+			</div>
+			<form id="menusettings">
+				<table>
+					<tr>
+						<td>Number of Lives</td>
+						<td><input type="number" name="lives"></td>
+					</tr>
+					<tr>
+						<td>Pinching Crabs</td>
+						<td><input type="number" name="crabs"></td>
+					</tr>
+					<tr>
+						<td>Delicious Bowls</td>
+						<td><input type="number" name="bowls"></td>
+					</tr>
+					<tr>
+						<td>Scared Cats</td>
+						<td><input type="number" name="cats"></td>
+					</tr>
+					<tr>
+						<td>Heavy Rocks</td>
+						<td><input type="number" name="rocks"></td>
+					</tr>
+					<tr>
+						<td>Crab Speed</td>
+						<td><input type="number" name="crabspeed"></td>
+					</tr>
+					<tr>
+						<td>Cat Speed</td>
+						<td><input type="number" name="catspeed"></td>
+					</tr>
+					<tr>
+						<td>Debug</td>
+						<td><input type="checkbox" name="debug"></td>
+					</tr>
+				</table>
+			</form>
+		</div>
+		<div id="footer"><a href="https://www.linkedin.com/pub/beatriz-lalanda/68/351/286">Beatriz Lalanda 42094</a> | <a href="http://pyntor.net16.net">Pedro Pinto 42066</a></div>
+	</div>
+	<img id="logo" src="img/logo.gif"/>
+</body>
+</html>

@@ -1,0 +1,139 @@
+#logo {
+	position: fixed;
+	z-index: 9;
+	right: -20px;
+	bottom: -20px;
+	width: 180px;
+}
+
+#container {
+	width: 992px;
+	margin: 0 auto;
+	height: 870px;
+	padding: 20px;
+}
+
+#play {
+	position: relative;
+	height: 576px;
+}
+#playground, #playreport {
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+#playground {
+	z-index: 0;
+}
+#playreport, #playwelcome {
+	z-index: 1;
+	visibility: hidden;
+	width: 992px;
+	height: 576px;
+}
+#playreport {
+	display: table;
+}
+#playreport span {
+	display: table-cell;
+	vertical-align: middle;
+}
+#playwelcome p {
+	padding: 6px 25px;
+	line-height: 30px;
+}
+#playwelcome p:first-child {
+	padding-top: 25px;
+}
+
+#menu {
+	height: 235px;
+	margin: 10px 0;
+}
+#menucontrol, #menuinfo, #menusettings {
+	width: 324px;
+	float: left;
+	height: 100%;
+}
+
+#menucontrol input {
+	width: 100%;
+	height: 72px;
+	margin-bottom: 8px;
+	border: 0px;
+}
+
+
+
+
+#menuinfo {
+	position: relative;
+	margin: 0 10px;
+}
+
+
+#menuinfo h2 {
+	margin-top: 20px;
+}
+
+#menuinfo h3 {
+	margin-top: 10px;
+}
+
+#meuinfo .right {
+	width: 49%;
+}
+
+#menuinfo .left {
+	width: 49%;
+	float: right;
+}
+
+
+#menusettings table {
+	border-collapse: collapse;
+	border-spacing: 0;
+	width: 100%;
+	margin-top: 10px;
+}
+#menusettings table tr>td {
+	width: 100%;
+	padding-left: 10px;
+}
+#menusettings input {
+	width: 90px;
+	border: 0;
+	padding: 0;
+}
+
+#footer {
+	padding: 10px;
+}
+
+
+
+
+#controls {
+	display: table;
+	width: 100%;
+	margin-top: 15px;
+}
+
+#controls div {
+	display: table-cell;
+	vertical-align: bottom;
+	text-align: center;
+}
+
+#controls img {
+	height: 100px;
+}
+
+#controls img.half {
+	height: 50px;
+}
+
+#controls figcaption {
+	margin-top: 10px;
+	font-size: 18px;
+}

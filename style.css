@@ -1,0 +1,112 @@
+body, input {
+	font-family: "Press Start 2P", cursive;
+	font-variant: small-caps;
+	color: #FFF;
+	text-align: center;
+	transition: background-color 200ms linear;
+}
+body {
+	background-color: #444;
+}
+
+#container {
+	background-color: #BF6;
+	-webkit-animation: fadein 1s;
+	-moz-animation: fadein 1s;
+}
+
+#play {
+	background-color: #FFF;
+}
+#playreport, #playwelcome {
+	background-color: rgba(107, 182, 23, 0.8);
+}
+#playreport span {
+	font-size: 100px;
+	text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #ff2d95, 0 0 30px #ff2d95, 0 0 40px #ff2d95, 0 0 50px #ff2d95, 0 0 75px #ff2d95;
+}
+#playwelcome p {
+	text-align: justify;
+	font-size: 20px;
+	font-variant: normal;
+}
+#playwelcome p.center {
+	text-align: center;
+}
+
+#menucontrol input {
+	background-color: #6BB617;
+	font-size: 35px;
+	font-variant: small-caps;
+}
+#menucontrol input:hover {
+	background-color: #444;
+}
+#menucontrol input:active {
+	background-color: #900;
+}
+#menucontrol input:disabled {
+	background-color: #6BB617;
+	color: #6BB617;
+}
+
+
+
+
+#menuinfo {
+	color: #222;
+}
+
+
+#menuinfo h1 {
+	font-family: Impact, Charcoal, sans-serif;
+	font-size: 70px;
+	text-decoration: underline;
+}
+
+#menuinfo h2 {
+	font-size: 20px;
+}
+
+#menuinfo h3 {
+	font-size: 25px;
+}
+
+
+
+
+#menusettings {
+	background-color: #6BB617;
+	font-size: 15px;
+	text-align: left;
+}
+#menusettings input {
+	background-color: #6BB617;
+	font-size: 20px;
+	text-align: right;
+}
+#menusettings input:hover {
+	background-color: #444;
+}
+
+#footer {
+	background-color: #444;
+	font-family: Verdana, Geneva, sans-serif;
+	font-variant: normal;
+}
+#footer a {
+	color: #FFF;
+	text-decoration: none;
+}
+#footer a:hover {
+	text-decoration: underline;
+}
+
+@-moz-keyframes fadein {
+	from {opacity: 0;}
+	to {opacity: 1;}
+}
+@-webkit-keyframes fadein {
+	from {opacity: 0;}
+	to {opacity: 1;}
+}
